@@ -1,41 +1,54 @@
 void setup()
 {
-    /* センサのピン番号設定 */
-    int phototransistorPin = 1; // フォトトランジスタのピン番号
-    int touchPin = 0;           // タッチセンサのピン番号
-
+    int photoInput, touchInput;
     /* センサのピン設定 */
-    pinMode(phototransistorPin, INPUT);
-    pinMode(touchPin, INPUT);
-
-    /* モータードライバのピン番号設定 */
-    int rightMortorIN1Pin = 5; // 右モータドライバのIN1ピン
-    int rightMortorIN2Pin = 6; // 右モータドライバのIN2ピン
-    int leftMortorIN1Pin = 7;  // 左モータドライバのIN1ピン
-    int leftMortorIN2Pin = 8;  // 左モータドライバのIN2ピン
+    pinMode(2, INPUT); // フォトトランジスタ
+    pinMode(3, INPUT); // タッチセンサ
 
     /* モータードライバのピン設定 */
-    pinMode(rightMortorIN1Pin, OUTPUT); // 右モータドライバのIN1ピン
-    pinMode(rightMortorIN2Pin, OUTPUT); // 右モータドライバのIN2ピン
-    pinMode(leftMortorIN1Pin, OUTPUT);  // 左モータドライバのIN1ピン
-    pinMode(leftMortorIN2Pin, OUTPUT);  // 左モータドライバのIN2ピン
-}
+    pinMode(5, OUTPUT); // 右モータドライバのIN1ピン
+    pinMode(6, OUTPUT); // 右モータドライバのIN2ピン
+    pinMode(7, OUTPUT); // 左モータドライバのIN1ピン
+    pinMode(8, OUTPUT); // 左モータドライバのIN2ピン
 
+    Serial.begin(9600);
+
+    for (;;)
+    {
+        photoInput = digitalRead(2);
+        touchInput = digitalRead(3);
+        Serial.print("Photo: ");
+        Serial.print(photoInput);
+        Serial.print(" Touch: ");
+        Serial.println(touchInput);
+        if (photoInput == LOW && touchInput == HIGH)
+        {
+            Serial.println("Move motors");
+            /* 右正転、左逆転 */
+            digitalWrite(5, HIGH);
+            digitalWrite(6, LOW);
+            digitalWrite(7, LOW);
+            digitalWrite(8, HIGH);
+            delay(1000); // 1秒待機
+            /* 右逆転、左正転 */
+            digitalWrite(5, LOW);
+            digitalWrite(6, HIGH);
+            digitalWrite(7, HIGH);
+            digitalWrite(8, LOW);
+            delay(1000); // 1秒待機
+        }
+        else
+        {
+            Serial.println("Stop motors");
+            /* モーターを停止 */
+            digitalWrite(5, LOW);
+            digitalWrite(6, LOW);
+            digitalWrite(7, LOW);
+            digitalWrite(8, LOW);
+        }
+    }
+}
 void loop()
 {
-    if (digitalRead(phototransistorPin) == LOW && digitalRead(touchPin) == HIGH)
-    {
-        /* 右正転、左逆転 */
-        digitalWrite(rightMortorIN1Pin, HIGH);
-        digitalWrite(rightMortorIN2Pin, LOW);
-        digitalWrite(leftMortorIN1Pin, LOW);
-        digitalWrite(leftMortorIN2Pin, HIGH);
-        delay(1000); // 1秒待機
-        /* 右逆転、左正転 */
-        digitalWrite(rightMortorIN1Pin, LOW);
-        digitalWrite(rightMortorIN2Pin, HIGH);
-        digitalWrite(leftMortorIN1Pin, HIGH);
-        digitalWrite(leftMortorIN2Pin, LOW);
-        delay(1000); // 1秒待機
-    }
+    // ループ内は空
 }
