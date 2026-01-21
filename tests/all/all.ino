@@ -41,10 +41,10 @@ void setup()
         {
             Serial.println("Stop motors");
             /* モーターを停止 */
-            digitalWrite(5, LOW);
-            digitalWrite(6, LOW);
-            digitalWrite(7, LOW);
-            digitalWrite(8, LOW);
+            digitalWrite(5, HIGH);
+            digitalWrite(6, HIGH);
+            digitalWrite(7, HIGH);
+            digitalWrite(8, HIGH);
         }
     }
 }
