@@ -4,14 +4,56 @@
 
 ```txt
 [root]
+│   .gitignore
+│   README.md
+│   result.pdf
 ├───main             # 本番用プログラム
+│       main.ino
 ├───pitch            # プレゼン関連の格納フォルダ
+│   │   Data.xlsx
+│   │   flowchart.jpg
+│   │   fonts.zip
+│   │   idea_draft.jpg
+│   │   NightSky.jpg
+│   │   PitchDeck.pdf
+│   │   PitchDeck.pptx
+│   │   PitchText.md
+│   │   PitchText.pdf
+│   │   SYSTEM DIAGRASM.drawio
+│   │   SYSTEM DIAGRASM.svg
+│   ├───demovideo
+│   │       01ラックギヤ.mp4
+│   │       02卑しいラックギヤ.mp4
+│   │       03声入り.mp4
+│   │       04上部からの動作映像.mp4
+│   │       05斜めからの動作映像.mp4
+│   │       06ラックとピニオンCAD.mp4
+│   │       07全体画像.png
+│   │       08[編集済]動作確認映像.mp4
+│   │       09[編集済]ラックとピニオン.mp4
+│   │       10.mp4
+│   │       11.mp4
+│   │       12.mp4
+│   │       13.mp4
+│   │
+│   ├───fonts
+│   │       JetBrainsMono-Regular.ttf
+│   │       NotoSans-VariableFont_wdth,wght.ttf
+│   │       NotoSansJP-VF.ttf
+│   │
+│   └───ラックギヤ
+│           ラックギヤ.png
+│           ラックギヤの映像.mp4
 ├───software-basic   # ソフトウェア基礎演習のソースコード
-└───tests            # 部品ごとのテストプログラム
-    ├───all          # 全部品の合体プログラム
-    ├───light        # 光センサのプログラム
-    ├───motor        # モータのプログラム
-    └───touch        # タッチセンサのプログラム
+└───tests
+    ├───all
+    │       all.ino
+    ├───light
+    │       light.ino
+    ├───motor
+    │       motor.ino
+    └───touch
+            touch.ino
 ```
 
 ## 参考リンク
