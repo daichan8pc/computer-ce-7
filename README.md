@@ -2,21 +2,24 @@
 
 ## ディレクトリ解説
 
-### software-basic
-
-ソフトウェア基礎演習で作成した課題と LED のソースコードをひとまとめにしたページ。
-
-### memo
-
-メモ
-
-### README.md
-
-これ
+```txt
+[root]
+├───main             # 本番用プログラム
+├───pitch            # プレゼン関連の格納フォルダ
+├───software-basic   # ソフトウェア基礎演習のソースコード
+└───tests            # 部品ごとのテストプログラム
+    ├───all          # 全部品の合体プログラム
+    ├───light        # 光センサのプログラム
+    ├───motor        # モータのプログラム
+    └───touch        # タッチセンサのプログラム
+```
 
 ## 参考リンク
 
-- [授業 Moodle](https://moodle.numazu-ct.ac.jp/moodle/course/view.php?id=5905)
+- [repo](https://github.com/daichan8pc/computer-ce-7)
+- [アンケートリンク(要ログイン)](https://docs.google.com/forms/d/1H8Lh20PxOnxqxZlTSilyKwvqTDOGvx8U-hj0DAEVzxE/edit#responses)
+- [アンケート回答リンク](https://forms.gle/aNEiRRsQxvDxF1mx9)
+- [授業 Moodle(要ログイン)](https://moodle.numazu-ct.ac.jp/moodle/course/view.php?id=5905)
 
 ---
 
