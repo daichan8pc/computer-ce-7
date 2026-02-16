@@ -16,7 +16,9 @@
 
 ## 参考リンク
 
-- [授業 Moodle](https://moodle.numazu-ct.ac.jp/moodle/course/view.php?id=5905)
+- [アンケートリンク(要ログイン)](https://docs.google.com/forms/d/1H8Lh20PxOnxqxZlTSilyKwvqTDOGvx8U-hj0DAEVzxE/edit#responses)
+- [アンケート回答リンク](https://forms.gle/aNEiRRsQxvDxF1mx9)
+- [授業 Moodle(要ログイン)](https://moodle.numazu-ct.ac.jp/moodle/course/view.php?id=5905)
 
 ---
 
