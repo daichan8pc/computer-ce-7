@@ -1,151 +1,40 @@
 # コンピュータ基礎演習 「創造演習」 7 班
 
+## 概要
+
+このリポジトリには、S1コンピュータ基礎演習「創造演習」にてS25の7班が製作した「孤独な夜に寄り添うパートナーロボット『Co-Co』」に搭載したコードがある。
+
+順位：クラス内総合1位
+
+詳細はARCHIVE.mdへ記載。
+
 ## ディレクトリ解説
 
 ```txt
 [root]
 │   .gitignore
 │   README.md
-│   result.pdf
-├───main             # 本番用プログラム
+│   ARCHIVE.md
+├───main                # 本番用プログラム
 │       main.ino
-├───pitch            # プレゼン関連の格納フォルダ
-│   │   Data.xlsx
-│   │   flowchart.jpg
-│   │   fonts.zip
-│   │   idea_draft.jpg
-│   │   NightSky.jpg
-│   │   PitchDeck.pdf
-│   │   PitchDeck.pptx
-│   │   PitchText.md
-│   │   PitchText.pdf
-│   │   SYSTEM DIAGRASM.drawio
-│   │   SYSTEM DIAGRASM.svg
-│   ├───demovideo
-│   │       01ラックギヤ.mp4
-│   │       02卑しいラックギヤ.mp4
-│   │       03声入り.mp4
-│   │       04上部からの動作映像.mp4
-│   │       05斜めからの動作映像.mp4
-│   │       06ラックとピニオンCAD.mp4
-│   │       07全体画像.png
-│   │       08[編集済]動作確認映像.mp4
-│   │       09[編集済]ラックとピニオン.mp4
-│   │       10.mp4
-│   │       11.mp4
-│   │       12.mp4
-│   │       13.mp4
-│   │
-│   ├───fonts
-│   │       JetBrainsMono-Regular.ttf
-│   │       NotoSans-VariableFont_wdth,wght.ttf
-│   │       NotoSansJP-VF.ttf
-│   │
-│   └───ラックギヤ
-│           ラックギヤ.png
-│           ラックギヤの映像.mp4
-├───software-basic   # ソフトウェア基礎演習のソースコード
-└───tests
+└───tests               # 各種テスト用プログラム
     ├───all
-    │       all.ino
+    │       all.ino     # 全動作
     ├───light
-    │       light.ino
+    │       light.ino   # 光センサ入力
     ├───motor
-    │       motor.ino
+    │       motor.ino   # モーター出力
     └───touch
-            touch.ino
+            touch.ino   # タッチセンサ入力
 ```
 
 ## 参考リンク
 
-- [repo](https://github.com/daichan8pc/computer-ce-7)
-- [アンケートリンク(要ログイン)](https://docs.google.com/forms/d/1H8Lh20PxOnxqxZlTSilyKwvqTDOGvx8U-hj0DAEVzxE/edit#responses)
 - [アンケート回答リンク](https://forms.gle/aNEiRRsQxvDxF1mx9)
-- [授業 Moodle(要ログイン)](https://moodle.numazu-ct.ac.jp/moodle/course/view.php?id=5905)
 
 ---
 
-## 開発ルール (Development Guidelines)
+## License
 
-スムーズなチーム開発のために、以下のルールを守ること。
-
-### 1. ディレクトリ構成のルール
-
-本番用コードとテスト用コードを混ぜないために、フォルダを分けて管理している。
-
-- **`main/`**: 本番用のプログラム。
-- **`tests/`**: 部品ごとの動作確認用プログラム。
-
-**重要なお約束**
-Arduino IDE の仕様上、「フォルダ名」と「中の.ino ファイル名」は必ず一致させる必要がある。
-（例: `tests/motor/motor.ino` は OK、`tests/motor/test.ino` は NG）
-
-### 2. ブランチの運用 (GitHub Flow)
-
-`main` ブランチは常に「確実に動く状態」を保つ。
-
-1. **`main` ブランチ**: 完成品。**直接編集・コミットは禁止**。
-2. **作業用ブランチ**: 必ず `main` から派生させて作る。
-   - 命名規則: `カテゴリ/内容`
-   - 例: `feature/touch-sensor` (タッチセンサ実装)
-   - 例: `fix/motor-speed` (モータ速度の修正)
-   - 例: `docs/update-readme` (ドキュメント更新)
-
-#### 作業の始め方（ブランチの切り方）
-
-作業を開始するときは、必ず以下の手順で新しいブランチを切る。
-
-```bash
-# 1. mainブランチに戻って、最新の状態を取得する
-git swich main
-git pull origin main
-
-# 2. 新しいブランチを作成して、そこへ移動する
-git cwitch -c feature/ブランチ名
-# (例：git switch -c feature/touch-sensor)
-```
-
-#### ブランチの命名規則
-
-`カテゴリ/内容`の形式で名前を付けること。
-
-- `feature/〇〇`: 新機能の実装 (例:`feature/touch-sensor`)
-- `fix/〇〇`: バグ修正 (例:`fix/motor-speed`)
-- `docs/〇〇`: ドキュメント更新 (例: `docs/update-readme`)
-
-### 3. コミットメッセージの規則
-
-履歴を見やすくするため、メッセージの先頭に **Prefix（接頭辞）** をつける。
-
-**フォーマット:** `Prefix: 内容の要約`
-
-| Prefix       | 意味                     | 使用例                               |
-| :----------- | :----------------------- | :----------------------------------- |
-| **feat**     | 新機能の追加             | `feat: ライントレース機能を追加`     |
-| **fix**      | バグ修正                 | `fix: 閾値を修正して誤作動を防止`    |
-| **docs**     | ドキュメントのみ         | `docs: 配線図の画像を追加`           |
-| **refactor** | 整理（動作は変わらない） | `refactor: 変数名を分かりやすく変更` |
-| **style**    | 整形                     | `style: インデントのズレを修正`      |
-
-**悪い例:**
-
-- `あ` (意味不明)
-- `修正` (何を？)
-- `update` (具体的でない)
-
-### 4. マージのルール
-
-チーム内でのコードレビューを徹底するため、マージは以下の手順で行う。
-
-1. **Pull Request (PR) を作成**
-   - GitHub 上で `main` ブランチに向けて PR を作成する。
-2. **コードレビュー**
-   - 作成者はメンバーにレビューを依頼。
-   - レビュワーはコードを確認し、問題があればコメント、良ければ Approve する。
-3. **マージ実行**
-   - 原則として、**GitHub 上の「Merge pull request」ボタン**を使用。
-   - コンフリクトが発生した場合は、ローカルで解消してから再度 Push する。
-4. **ブランチの削除**
-   - マージが完了したら、作業用ブランチは削除する。
-
----
+[MIT License](https://opensource.org/licenses/MIT)
+Copyright (c) 2026 computer-basic-team-7
