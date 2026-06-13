@@ -1,3 +1,9 @@
+/*
+* Copyright (c) 2026 computer-basic-team-7
+* Released under the MIT License.
+* https://opensource.org/licenses/MIT
+*/
+
 void setup()
 {
     int photoInput, touchInput;
