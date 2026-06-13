@@ -14,6 +14,7 @@
 [root]
 │   .gitignore
 │   README.md
+│   LICENSE
 │   ARCHIVE.md
 ├───main                # 本番用プログラム
 │       main.ino
