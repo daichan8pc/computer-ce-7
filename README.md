@@ -37,4 +37,5 @@
 ## License
 
 [MIT License](https://opensource.org/licenses/MIT)
+
 Copyright (c) 2026 computer-basic-team-7
